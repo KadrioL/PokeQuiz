@@ -107,7 +107,7 @@ function startTimer() {
 		if (distance < 0 || surrendered) {
 			clearInterval(x);
 			document.getElementById("timer").innerHTML = "00:00 || Gen " + n;
-			document.getElementById("userInput").setAttribute("disabled", "disabled");
+			surrender();
 		}
 	}, 1000);
 }
