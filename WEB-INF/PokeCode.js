@@ -8,6 +8,7 @@ let pokeCounter = 0;
 var checkList = new Array();
 var surrendered = false;
 var countDownDate
+var x;
 
 document.addEventListener('DOMContentLoaded', function() {
 	const buttonElement = document.getElementById("surrender");
@@ -79,9 +80,7 @@ function surrender(j) {
 }
 
 function stopTimer() {
-	if (document.getElementById("timer") != "") {
-		document.getElementById("timer").innerHTML = "";
-	}
+	clearInterval(x);
 
 
 }
@@ -90,7 +89,7 @@ function startTimer() {
 	stopTimer();
 	countDownDate = new Date().getTime() + 15.01 * 60 * 1000;
 	// Update the count down every 1 second
-	var x = setInterval(function() {
+	x = setInterval(function() {
 
 		// Get today's date and time
 		var now = new Date().getTime();
@@ -114,134 +113,143 @@ function startTimer() {
 	}, 1000);
 }
 function generateTable() {
-	while (checkList.length > 0) {
-		checkList.pop();
-	}
-	document.querySelector('#surrender').disabled = false;
-	document.querySelector('#userInput').disabled = false;
-	pokeCounter = 0;
-	if (zaehler != 0) {
-		document.getElementById("pokeTable").remove();
-	}
-	const tbl = document.createElement("table");
-	const tblBody = document.createElement("tbody");
-
 	n = document.getElementById("gens").value;
-	let counter = 1;
-	if (n == 1) {
+	if (n == 0) {
+		clearInterval(x);
+		document.getElementById("timer").innerHTML = "15:00 || Gen x";
+		document.getElementById("counter").innerHTML = "0/0 ||";
 
-		for (let i = 0; i < 51; i++) {
-			// creates a table row
-			const row = document.createElement("tr");
+	} else {
 
-			for (let j = 0; j < 3; j++) {
 
-				// Create a <td> element and a text node, make the text
-				// node the contents of the <td>, and put the <td> at
-				// the end of the table row
-				if (counter <= 151) {
-					const cell = document.createElement("td");
-					cell.setAttribute("id", "td" + counter)
-					const cellText = document.createTextNode("" + counter + ": ");
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					counter++;
+		while (checkList.length > 0) {
+			checkList.pop();
+		}
+		document.querySelector('#surrender').disabled = false;
+		document.querySelector('#userInput').disabled = false;
+		pokeCounter = 0;
+		if (zaehler != 0) {
+			document.getElementById("pokeTable").remove();
+		}
+		const tbl = document.createElement("table");
+		const tblBody = document.createElement("tbody");
+
+
+		let counter = 1;
+		if (n == 1) {
+
+			for (let i = 0; i < 51; i++) {
+				// creates a table row
+				const row = document.createElement("tr");
+
+				for (let j = 0; j < 3; j++) {
+
+					// Create a <td> element and a text node, make the text
+					// node the contents of the <td>, and put the <td> at
+					// the end of the table row
+					if (counter <= 151) {
+						const cell = document.createElement("td");
+						cell.setAttribute("id", "td" + counter)
+						const cellText = document.createTextNode("" + counter + ": ");
+						cell.appendChild(cellText);
+						row.appendChild(cell);
+						counter++;
+					}
+
 				}
 
+				// add the row to the end of the table body
+				tblBody.appendChild(row);
+				document.getElementById("counter").innerText = "" + pokeCounter + "/151 ||";
 			}
+		} else if (n == 2) {
+			for (let i = 0; i < 34; i++) {
+				// creates a table row
+				const row = document.createElement("tr");
 
-			// add the row to the end of the table body
-			tblBody.appendChild(row);
-			document.getElementById("counter").innerText = "" + pokeCounter + "/151 ||";
-		}
-	} else if (n == 2) {
-		for (let i = 0; i < 34; i++) {
-			// creates a table row
-			const row = document.createElement("tr");
+				for (let j = 0; j < 3; j++) {
 
-			for (let j = 0; j < 3; j++) {
+					// Create a <td> element and a text node, make the text
+					// node the contents of the <td>, and put the <td> at
+					// the end of the table row
+					if (counter <= 100) {
+						const cell = document.createElement("td");
+						cell.setAttribute("id", "td" + counter)
+						const cellText = document.createTextNode("" + counter + ": ");
+						cell.appendChild(cellText);
+						row.appendChild(cell);
+						counter++;
+					}
 
-				// Create a <td> element and a text node, make the text
-				// node the contents of the <td>, and put the <td> at
-				// the end of the table row
-				if (counter <= 100) {
-					const cell = document.createElement("td");
-					cell.setAttribute("id", "td" + counter)
-					const cellText = document.createTextNode("" + counter + ": ");
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					counter++;
 				}
 
+				// add the row to the end of the table body
+				tblBody.appendChild(row);
+				document.getElementById("counter").innerText = "" + pokeCounter + "/100 ||";
 			}
+		} else if (n == 3) {
+			for (let i = 0; i < 45; i++) {
+				// creates a table row
+				const row = document.createElement("tr");
 
-			// add the row to the end of the table body
-			tblBody.appendChild(row);
-			document.getElementById("counter").innerText = "" + pokeCounter + "/100 ||";
-		}
-	} else if (n == 3) {
-		for (let i = 0; i < 45; i++) {
-			// creates a table row
-			const row = document.createElement("tr");
+				for (let j = 0; j < 3; j++) {
 
-			for (let j = 0; j < 3; j++) {
+					// Create a <td> element and a text node, make the text
+					// node the contents of the <td>, and put the <td> at
+					// the end of the table row
+					if (counter <= 135) {
+						const cell = document.createElement("td");
+						cell.setAttribute("id", "td" + counter)
+						const cellText = document.createTextNode("" + counter + ": ");
+						cell.appendChild(cellText);
+						row.appendChild(cell);
+						counter++;
+					}
 
-				// Create a <td> element and a text node, make the text
-				// node the contents of the <td>, and put the <td> at
-				// the end of the table row
-				if (counter <= 135) {
-					const cell = document.createElement("td");
-					cell.setAttribute("id", "td" + counter)
-					const cellText = document.createTextNode("" + counter + ": ");
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					counter++;
 				}
 
+				// add the row to the end of the table body
+				tblBody.appendChild(row);
+				document.getElementById("counter").innerText = "" + pokeCounter + "/135 ||";
 			}
+		} else if (n == 4) {
+			for (let i = 0; i < 36; i++) {
+				// creates a table row
+				const row = document.createElement("tr");
 
-			// add the row to the end of the table body
-			tblBody.appendChild(row);
-			document.getElementById("counter").innerText = "" + pokeCounter + "/135 ||";
-		}
-	} else if (n == 4) {
-		for (let i = 0; i < 36; i++) {
-			// creates a table row
-			const row = document.createElement("tr");
+				for (let j = 0; j < 3; j++) {
 
-			for (let j = 0; j < 3; j++) {
+					// Create a <td> element and a text node, make the text
+					// node the contents of the <td>, and put the <td> at
+					// the end of the table row
+					if (counter <= 107) {
+						const cell = document.createElement("td");
+						cell.setAttribute("id", "td" + counter)
+						const cellText = document.createTextNode("" + counter + ": ");
+						cell.appendChild(cellText);
+						row.appendChild(cell);
+						counter++;
+					}
 
-				// Create a <td> element and a text node, make the text
-				// node the contents of the <td>, and put the <td> at
-				// the end of the table row
-				if (counter <= 107) {
-					const cell = document.createElement("td");
-					cell.setAttribute("id", "td" + counter)
-					const cellText = document.createTextNode("" + counter + ": ");
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-					counter++;
 				}
 
+				// add the row to the end of the table body
+				tblBody.appendChild(row);
+				document.getElementById("counter").innerText = "" + pokeCounter + "/107 ||";
 			}
-
-			// add the row to the end of the table body
-			tblBody.appendChild(row);
-			document.getElementById("counter").innerText = "" + pokeCounter + "/107 ||";
 		}
+
+		// put the <tbody> in the <table>
+		tbl.appendChild(tblBody);
+		// appends <table> into <body>
+		document.body.appendChild(tbl);
+		// sets the border attribute of tbl to '2'
+		tbl.setAttribute("id", "pokeTable");
+		tbl.setAttribute("class", "fl-table");
+		zaehler++;
+		startTimer();
 	}
-
-	// put the <tbody> in the <table>
-	tbl.appendChild(tblBody);
-	// appends <table> into <body>
-	document.body.appendChild(tbl);
-	// sets the border attribute of tbl to '2'
-	tbl.setAttribute("id", "pokeTable");
-	tbl.setAttribute("class", "fl-table");
-	zaehler++;
-	startTimer();
 }
-
 function checkInputGen() {
 	if (n == 1) {
 		checkInput(1);
