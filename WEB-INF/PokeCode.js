@@ -17,61 +17,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-function surrender() {
-
-	if (n == 1) {
-		document.getElementById("userInput").setAttribute("disabled", "disabled");
-		document.querySelector('#surrender').disabled = true;
-		for (var key in pokemon1) {
-			if (!checkList.includes(pokemon1[key])) {
-				let cell = document.getElementById("" + key);
-				cell.setAttribute("style", "color:red;");
-				let text = document.createTextNode("" + capitalizeFirstLetter(pokemon1[key]))
-				cell.appendChild(text);
+function surrender(j) {
+	if (!surrendered) {
+		if (n == 1) {
+			document.getElementById("userInput").setAttribute("disabled", "disabled");
+			document.querySelector('#surrender').disabled = true;
+			for (var key in pokemon1) {
+				if (!checkList.includes(pokemon1[key])) {
+					let cell = document.getElementById("" + key);
+					cell.setAttribute("style", "color:red;");
+					let text = document.createTextNode("" + capitalizeFirstLetter(pokemon1[key]))
+					cell.appendChild(text);
+				}
 			}
-		}
-		surrendered = true;
-		return surrendered;
-	} else if (n == 2) {
-		document.getElementById("userInput").setAttribute("disabled", "disabled");
-		document.querySelector('#surrender').disabled = true;
-		for (var key in pokemon2) {
-			if (!checkList.includes(pokemon2[key])) {
-				let cell = document.getElementById("" + key);
-				cell.setAttribute("style", "color:red;");
-				let text = document.createTextNode("" + capitalizeFirstLetter(pokemon2[key]))
-				cell.appendChild(text);
+			surrendered = true;
+			return surrendered;
+		} else if (n == 2) {
+			document.getElementById("userInput").setAttribute("disabled", "disabled");
+			document.querySelector('#surrender').disabled = true;
+			for (var key in pokemon2) {
+				if (!checkList.includes(pokemon2[key])) {
+					let cell = document.getElementById("" + key);
+					cell.setAttribute("style", "color:red;");
+					let text = document.createTextNode("" + capitalizeFirstLetter(pokemon2[key]))
+					cell.appendChild(text);
+				}
 			}
-		}
-		surrendered = true;
-		return surrendered;
-	} else if (n == 3) {
-		document.getElementById("userInput").setAttribute("disabled", "disabled");
-		document.querySelector('#surrender').disabled = true;
-		for (var key in pokemon3) {
-			if (!checkList.includes(pokemon3[key])) {
-				let cell = document.getElementById("" + key);
-				cell.setAttribute("style", "color:red;");
-				let text = document.createTextNode("" + capitalizeFirstLetter(pokemon3[key]))
-				cell.appendChild(text);
+			surrendered = true;
+			return surrendered;
+		} else if (n == 3) {
+			document.getElementById("userInput").setAttribute("disabled", "disabled");
+			document.querySelector('#surrender').disabled = true;
+			for (var key in pokemon3) {
+				if (!checkList.includes(pokemon3[key])) {
+					let cell = document.getElementById("" + key);
+					cell.setAttribute("style", "color:red;");
+					let text = document.createTextNode("" + capitalizeFirstLetter(pokemon3[key]))
+					cell.appendChild(text);
+				}
 			}
-		}
-		surrendered = true;
-		return surrendered;
-	} else if (n == 4) {
-		document.getElementById("userInput").setAttribute("disabled", "disabled");
-		document.querySelector('#surrender').disabled = true;
-		for (var key in pokemon4) {
-			if (!checkList.includes(pokemon4[key])) {
-				let cell = document.getElementById("" + key);
-				cell.setAttribute("style", "color:red;");
-				let text = document.createTextNode("" + capitalizeFirstLetter(pokemon4[key]))
-				cell.appendChild(text);
+			surrendered = true;
+			return surrendered;
+		} else if (n == 4) {
+			document.getElementById("userInput").setAttribute("disabled", "disabled");
+			document.querySelector('#surrender').disabled = true;
+			for (var key in pokemon4) {
+				if (!checkList.includes(pokemon4[key])) {
+					let cell = document.getElementById("" + key);
+					cell.setAttribute("style", "color:red;");
+					let text = document.createTextNode("" + capitalizeFirstLetter(pokemon4[key]))
+					cell.appendChild(text);
+				}
 			}
+			surrendered = true;
+			return surrendered;
 		}
-		surrendered = true;
-		return surrendered;
 	}
+
 
 
 }
@@ -112,10 +114,11 @@ function startTimer() {
 	}, 1000);
 }
 function generateTable() {
-	for(let i = 0; i<checkList.length;i++){
-		checkList.pop[i];
+	while (checkList.length > 0) {
+		checkList.pop();
 	}
 	document.querySelector('#surrender').disabled = false;
+	document.querySelector('#userInput').disabled = false;
 	pokeCounter = 0;
 	if (zaehler != 0) {
 		document.getElementById("pokeTable").remove();
@@ -352,8 +355,9 @@ function checkInput(m) {
 			window.alert("Hurra du hast alle Pokemon der dritten Generation erraten")
 		}
 
-	}else if(m==4){
-		if (input == pokemon4[key] && !checkList.includes(input)) {
+	} else if (m == 4) {
+		for (var key in pokemon4) {
+			if (input == pokemon4[key] && !checkList.includes(input)) {
 				checkList.push(pokemon4[key]);
 				pokeCounter++;
 
@@ -375,6 +379,11 @@ function checkInput(m) {
 				}
 
 			}
+
+		}
+		if (checkList.length == 107) {
+			window.alert("Hurra du hast alle Pokemon der vierten Generation erraten")
+		}
 	}
 }
 
