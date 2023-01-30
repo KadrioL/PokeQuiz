@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="PokeCode.js"></script>
+<link rel="stylesheet" href="PokeCSS.css">
+<meta charset="ISO-8859-1">
+<title>Pokemon Quiz</title>
+</head>
+<body>
+	<div class="header">
+		<input id="userInput" type="text" autofocus onkeyup="checkInputGen()" />
+		<i id="counter"> 0/0 || </i>
+		<i id="timer"> 15:00 || Gen x </i>
+		<button id="surrender">Surrender</button>
+		
+		<select id="gens" onchange="generateTable()">
+			<option>Waehle die Generation aus</option>
+			<option value="1">Gen 1</option>
+			<option value="2">Gen 2</option>
+			<option value="3">Gen 3</option>
+			<option value="4">Gen 4</option>
+		</select>
+		
+
+	</div>
+	
+</body>
+</html>
