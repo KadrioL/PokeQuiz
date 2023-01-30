@@ -112,6 +112,9 @@ function startTimer() {
 	}, 1000);
 }
 function generateTable() {
+	for(let i = 0; i<checkList.length;i++){
+		checkList.pop[i];
+	}
 	document.querySelector('#surrender').disabled = false;
 	pokeCounter = 0;
 	if (zaehler != 0) {
@@ -309,7 +312,7 @@ function checkInput(m) {
 
 				element = document.getElementById("counter");
 				if (element) {
-					element.innerHTML = "" + pokeCounter + "/151  ||";
+					element.innerHTML = "" + pokeCounter + "/100  ||";
 
 				}
 
@@ -338,7 +341,7 @@ function checkInput(m) {
 
 				element = document.getElementById("counter");
 				if (element) {
-					element.innerHTML = "" + pokeCounter + "/151  ||";
+					element.innerHTML = "" + pokeCounter + "/135  ||";
 
 				}
 
@@ -349,6 +352,29 @@ function checkInput(m) {
 			window.alert("Hurra du hast alle Pokemon der dritten Generation erraten")
 		}
 
+	}else if(m==4){
+		if (input == pokemon4[key] && !checkList.includes(input)) {
+				checkList.push(pokemon4[key]);
+				pokeCounter++;
+
+				let cell = document.getElementById("" + key);
+
+				input = capitalizeFirstLetter(input);
+				cell.appendChild(document.createTextNode("" + input));
+
+
+
+
+				document.getElementById("userInput").value = "";
+				var element;
+
+				element = document.getElementById("counter");
+				if (element) {
+					element.innerHTML = "" + pokeCounter + "/107  ||";
+
+				}
+
+			}
 	}
 }
 
