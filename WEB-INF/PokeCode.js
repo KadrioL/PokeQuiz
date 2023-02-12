@@ -301,7 +301,7 @@ function checkInput(m) {
 			}
 
 		}
-		if (checkList.length == 150) {
+		if (checkList.length == 151) {
 			window.alert("Hurra du hast alle Pokemon der ersten Generation erraten")
 		}
 	} else if (m == 2) {
@@ -330,7 +330,7 @@ function checkInput(m) {
 			}
 
 		}
-		if (checkList.length == 99) {
+		if (checkList.length == 100) {
 			window.alert("Hurra du hast alle Pokemon der zweiten Generation erraten")
 		}
 	} else if (m == 3) {
@@ -359,7 +359,7 @@ function checkInput(m) {
 			}
 
 		}
-		if (checkList.length == 134) {
+		if (checkList.length == 135) {
 			window.alert("Hurra du hast alle Pokemon der dritten Generation erraten")
 		}
 
