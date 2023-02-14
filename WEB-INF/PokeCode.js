@@ -301,7 +301,7 @@ function checkInput(m) {
 			}
 
 		}
-		if (checkList.length == 151) {
+		if (checkList.length == 150) {
 			window.alert("Hurra du hast alle Pokemon der ersten Generation erraten")
 		}
 	} else if (m == 2) {
